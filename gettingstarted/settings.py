@@ -54,7 +54,7 @@ if PROD==1:
     ES_URL = urlparse(os.environ.get('BONSAI_URL'))
 else:
     ES_URL = 'localhost:9200'
-    ES_URL = urlparse(os.environ.get('BONSAI_URL'))
+    ES_URL = os.environ.get('BONSAI_URL')
 
 ELASTICSEARCH_DSL = {
     'default': {
