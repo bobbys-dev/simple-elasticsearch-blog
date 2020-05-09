@@ -49,7 +49,8 @@ INSTALLED_APPS = [
 PROD = os.getenv('MY_DEPLOYMENT', 0)
 
 if PROD==1:
-    ES_URL = os.environ.get('BONSAI_URL')
+    #ES_URL = os.environ.get('BONSAI_URL')
+    ES_URL = urlparse(os.environ.get('BONSAI_URL') or 'localhost:9200')
 else:
     ES_URL = 'localhost:9200'
 
