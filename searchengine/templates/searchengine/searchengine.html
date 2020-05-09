@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% block extrascript %}
+<script async src="https://cse.google.com/cse.js?cx=008971871511163731538:k4p3i9rayur"></script>
+{% endblock %}
+
+
+{% block content %}
+    <form onsubmit="return executeQuery();" id="cse-search-box-form-id">
+      <!-- This is the input search box -->
+      <input type="text" id="cse-search-input-box-id" size="25" autocomplete="off"/>
+      <input type="submit" value="Search"/>
+    </form>
+    <!-- Element code snippet -->
+    <script>
+      function executeQuery() {
+        var input = document.getElementById('cse-search-input-box-id');
+        var element = google.search.cse.element.getElement('searchresults-only0');
+        if (input.value == '') {
+          element.clearAllResults();
+        } else {
+          element.execute(input.value);
+        }
+        return false;
+      }
+    </script>
+    <div class="gcse-searchresults-only"></div>
+{% endblock %}

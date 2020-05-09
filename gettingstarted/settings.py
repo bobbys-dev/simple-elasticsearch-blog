@@ -43,17 +43,17 @@ INSTALLED_APPS = [
     "blog.apps.BlogConfig",
     "search", # app using elasticsearch
     "django_elasticsearch_dsl", # Django Elasticsearch integration
+    "searchengine"
 ]
 
 # Elasticsearch configuration
-PROD = os.getenv('MY_DEPLOYMENT', 0)
+IS_LOCAL = os.getenv('IS_LOCAL', 0)
 
-if PROD==1:
+if IS_LOCAL==1:
+    ES_URL = 'localhost:9200'
+else:
     #ES_URL = os.environ.get('BONSAI_URL')
     #ES_URL = urlparse(os.environ.get('BONSAI_URL') or 'localhost:9200')
-    ES_URL = urlparse(os.environ.get('BONSAI_URL'))
-else:
-    ES_URL = 'localhost:9200'
     ES_URL = os.environ.get('BONSAI_URL')
 
 ELASTICSEARCH_DSL = {

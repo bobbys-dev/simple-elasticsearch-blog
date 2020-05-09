@@ -1,6 +1,14 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <form method="get">
+        <input id="q" name="q" type="text" size="50" placeholder="search blog...">
+    </form>
+    {% if meta_info.results_count > 0 %}
+        <br>
+        <p>Found <b>{{ meta_info.results_count }}</b> posts containing <b>{{ meta_info.query }}</b> in title and texts.</p>
+    {% endif %}
+    <br>
     {% for post in posts %}
         <div class="post">
             <div class="date">
