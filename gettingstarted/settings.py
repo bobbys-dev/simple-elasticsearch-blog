@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     "blog.apps.BlogConfig",
     "search", # app using elasticsearch
     "django_elasticsearch_dsl", # Django Elasticsearch integration
-    "searchengine"
+    "searchengine",
+    "predatoryjournals",
 ]
 
 # Elasticsearch configuration
